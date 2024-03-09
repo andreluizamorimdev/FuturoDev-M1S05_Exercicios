@@ -36,6 +36,10 @@ function consultarPreco() {
         let botaoComprar = document.createElement('button');
         botaoComprar.className = 'buy-button';
         botaoComprar.textContent = 'Adicionar ao carrinho';
+
+        //Exercicio 03 adicionar evento ao botao de adicionar ao carrinho
+        botaoComprar.addEventListener('click', () => adicionarCarrinho(produto));
+
         divProduto.appendChild(botaoComprar);
 
         listaProdutos.appendChild(divProduto);
@@ -43,4 +47,9 @@ function consultarPreco() {
     } else {
         listaProdutos.textContent = 'Produto não encontrado';
     }
+}
+
+function adicionarCarrinho(produto) {
+    carrinho.push(produto);
+    console.log(carrinho);
 }
