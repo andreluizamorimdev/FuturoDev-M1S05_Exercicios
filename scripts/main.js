@@ -14,6 +14,17 @@ const produtos = [
 const carrinho = [];
 let total = document.getElementById('total-carrinho');
 
+// Exercicio 07 carregar os itens do carrinho do localStorage
+function carregarItensLocalStorage() {
+    const itensNoCarrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho.push(...itensNoCarrinho);
+    atualizarQtdCarrinho();
+}
+// Exercicio 07 salvar os itens do carrinho no localStorage
+function salvarItensLocalStorage() {
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+}
+
 function consultarPreco() {
     let listaProdutos = document.getElementById('product-list');
     const nomeBuscado = document.getElementById('search').value;
@@ -40,8 +51,6 @@ function consultarPreco() {
         //Exercicio 03 adicionar evento ao botao de adicionar ao carrinho
         botaoComprar.addEventListener('click', () => {
             adicionarCarrinho(produto);
-            mostrarTotalCarrinho();
-            atualizarQtdCarrinho();
         });
 
         
@@ -57,6 +66,9 @@ function consultarPreco() {
 
 function adicionarCarrinho(produto) {
     carrinho.push(produto);
+    mostrarTotalCarrinho();
+    atualizarQtdCarrinho();
+    salvarItensLocalStorage();
     console.log(carrinho);
 }
 
@@ -84,3 +96,6 @@ function mostrarTotalCarrinho() {
     const totalCarrinho = calcularTotalCarrinho();
     total.textContent = totalCarrinho;
 }
+
+// Exercicio 07 carregando os itens salvos
+carregarItensLocalStorage();
