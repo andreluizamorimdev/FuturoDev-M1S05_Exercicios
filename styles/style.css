@@ -26,6 +26,16 @@ h1 {
     margin-bottom: 20px;
 }
 
+.carrinho-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#quantidadeCarrinho {
+    font-weight: bold;
+}
+
 .search {
     margin-bottom: 20px;
     text-align: center;

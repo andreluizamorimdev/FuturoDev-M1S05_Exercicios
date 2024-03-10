@@ -12,7 +12,10 @@
     <div class="container">
         <div class="top-bar">
             <h1>Mercadinho</h1>
-            <button id="calcularTotalButton" onclick="mostrarTotalCarrinho()">Carrinho</button>
+            <div class="carrinho-container">
+                <button id="calcularTotalButton" onclick="mostrarTotalCarrinho()">Carrinho</button>
+                <span id="qtdCarrinho">0</span>
+            </div>
         </div>
         <div class="search">
             <input type="text" id="search" placeholder="Pesquise um produto">

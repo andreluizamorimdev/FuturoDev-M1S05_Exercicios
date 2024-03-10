@@ -41,6 +41,7 @@ function consultarPreco() {
         botaoComprar.addEventListener('click', () => {
             adicionarCarrinho(produto);
             mostrarTotalCarrinho();
+            atualizarQtdCarrinho();
         });
 
         
@@ -57,6 +58,12 @@ function consultarPreco() {
 function adicionarCarrinho(produto) {
     carrinho.push(produto);
     console.log(carrinho);
+}
+
+//Exercicio 05 atualizar quantidade de produtos no carrinho e mostrar na tela
+function atualizarQtdCarrinho() {
+    const qtdCarrinhoElement = document.getElementById('qtdCarrinho');
+    qtdCarrinhoElement.textContent = carrinho.length;
 }
 
 //Exercicio 04 cacular total do carrinho
