@@ -10,7 +10,10 @@
 
 <body>
     <div class="container">
-        <h1>Mercadinho</h1>
+        <div class="top-bar">
+            <h1>Mercadinho</h1>
+            <button id="calcularTotalButton" onclick="mostrarTotalCarrinho()">Carrinho</button>
+        </div>
         <div class="search">
             <input type="text" id="search" placeholder="Pesquise um produto">
             <button id="searchButton" onclick="consultarPreco()">Consultar valor</button>
@@ -19,6 +22,8 @@
         <div id="product-list">
 
         </div>
+
+        <div id="total-carrinho"></div>
     </div>
 
     <script src="./scripts/main.js"></script>

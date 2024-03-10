@@ -12,7 +12,7 @@ const produtos = [
 ];
 
 const carrinho = [];
-
+let total = document.getElementById('total-carrinho');
 
 function consultarPreco() {
     let listaProdutos = document.getElementById('product-list');
@@ -38,7 +38,12 @@ function consultarPreco() {
         botaoComprar.textContent = 'Adicionar ao carrinho';
 
         //Exercicio 03 adicionar evento ao botao de adicionar ao carrinho
-        botaoComprar.addEventListener('click', () => adicionarCarrinho(produto));
+        botaoComprar.addEventListener('click', () => {
+            adicionarCarrinho(produto);
+            mostrarTotalCarrinho();
+        });
+
+        
 
         divProduto.appendChild(botaoComprar);
 
@@ -52,4 +57,23 @@ function consultarPreco() {
 function adicionarCarrinho(produto) {
     carrinho.push(produto);
     console.log(carrinho);
+}
+
+//Exercicio 04 cacular total do carrinho
+function calcularTotalCarrinho() {
+    let total = 0;
+    carrinho.forEach(produto => {
+        total += produto.preco;
+    });
+    if(total === 0) {
+        return 'Carrinho vazio';
+    } else {
+        return `Valor total da compra: R$ ${total.toFixed(2)}`;
+    }
+
+}
+
+function mostrarTotalCarrinho() {
+    const totalCarrinho = calcularTotalCarrinho();
+    total.textContent = totalCarrinho;
 }
